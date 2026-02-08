@@ -23,7 +23,7 @@ void ft_print_comb2(void)
       {
         write(1, &k, 1);
         write(1, &l, 1);
-        if (!(i == 98 && j == 99))
+        if (!(k == 98 && l == 99))
         	{
         		write(1, ", ", 2);
         	}
