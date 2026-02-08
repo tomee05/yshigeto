@@ -1,21 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yshigeto <yshigeto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/08 12:56:28 by yshigeto          #+#    #+#             */
+/*   Updated: 2026/02/08 22:22:06 by yshigeto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-
-void ft_putnbr(int nb)
-{
-	int	c;
-	char	k;
-
-	k = nb + '0';
-	c = add(nb);
-	write(1, &k, c);
-	
-}
 
 int	add(int i)
 {
 	int	count;
 
-	count = 0;
+	count = 1;
 	if (i < 0)
 	{
 		write(1, "-", 1);
@@ -40,6 +41,16 @@ int	add(int i)
 	return (count);
 }
 
+void	ft_putnbr(int nb)
+{
+	int	c;
+	char	k;
+
+	k = nb + '0';
+	c = add(nb)+1;
+	write(1, &k, c);
+	
+}
 
 int main()
 {
