@@ -29,13 +29,13 @@ void	rush(int x, int y)　//図形を描画する
 		{
 			draw_horizontal(x, 'o', 'o', '-');　//一番上の列
 			height ++;　//heightを1増やす
-			continue ;　//
+			continue ;　//while (height <= y - 1)[26]に戻るが、条件に当てはまらないのでwhileを外れる
 		}
 		if (0 < height && height < y - 1)　//heightが0より大きくy-1より小さいときの描画
 		{
 			draw_horizontal(x, '|', '|', ' ');　//間の列
 			height ++;　//heightを1増やす
-			continue ;
+			continue ;　//while (height <= y - 1)[26]に戻る
 		}
 		draw_horizontal(x, 'o', 'o', '-');　//一番下の列
 		height ++;　//heightを1増やす
@@ -56,13 +56,13 @@ void	draw_horizontal(int x, char left_end, char right_end, char line)　
 		{
 			ft_putchar(left_end);
 			width ++;　//widthを1増やす
-			continue ;
+			continue ;　//while (width <= x - 1)[53]に戻るが、条件に当てはまらないのでwhileを外れる
 		}
 		if (0 < width && width < x - 1)　//widthが0より大きく、x-1より小さいとき、中の文字を表示
 		{
 			ft_putchar(line);
 			width ++;　//widthを1増やす
-			continue ;
+			continue ;　//while (width <= x - 1)[53]に戻る
 		}
 		ft_putchar(right_end);　//右端の文字を表示
 		width ++;　//widthを1増やす
