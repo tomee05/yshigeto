@@ -11,60 +11,61 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c);
-void	draw_horizontal(int x, char left_end, char right_end, char line);
+void	ft_putchar(char c);　//ft_putcharを呼び出す
+void	draw_horizontal(int x, char left_end, char right_end, char line);　//draw_horizontalを呼び出す
 
-void	rush(int x, int y)
+void	rush(int x, int y)　//図形を描画する
 {
-	int		height;
+	int		height;　//縦の長さ
 
-	if (x <= 0 || y <= 0)
+	if (x <= 0 || y <= 0)　//x or y が0のとき数を返す
 	{
 		return ;
 	}
-	height = 0;
-	while (height <= y - 1)
+	height = 0;　//heightを0にする
+	while (height <= y - 1)　//heightをy-1まで増やす間、描画する
 	{
-		if (height == 0)
+		if (height == 0)　//heightが0のとき1列だけ描画する
 		{
-			draw_horizontal(x, 'o', 'o', '-');
-			height ++;
+			draw_horizontal(x, 'o', 'o', '-');　//一番上の列
+			height ++;　//heightを1増やす
+			continue ;　//
+		}
+		if (0 < height && height < y - 1)　//heightが0より大きくy-1より小さいときの描画
+		{
+			draw_horizontal(x, '|', '|', ' ');　//間の列
+			height ++;　//heightを1増やす
 			continue ;
 		}
-		if (0 < height && height < y - 1)
-		{
-			draw_horizontal(x, '|', '|', ' ');
-			height ++;
-			continue ;
-		}
-		draw_horizontal(x, 'o', 'o', '-');
-		height ++;
+		draw_horizontal(x, 'o', 'o', '-');　//一番下の列
+		height ++;　//heightを1増やす
 	}
 }
 
-void	draw_horizontal(int x, char left_end, char right_end, char line)
+void	draw_horizontal(int x, char left_end, char right_end, char line)　
+//1列分の描画(横の長さ(x),　左端の文字,　右端の文字,　中の文字)
 {
-	int		width;
-	char	new_line;
+	int		width;　//横の長さ
+	char	new_line;　//改行
 
-	new_line = '\n';
-	width = 0;
-	while (width <= x - 1)
+	new_line = '\n';　//new_lineに改行を入れる
+	width = 0;　//widthを0にする
+	while (width <= x - 1)　//widthがx-1のとき繰り返す
 	{
-		if (width == 0)
+		if (width == 0)　//widthが0のとき、左端の文字を表示
 		{
 			ft_putchar(left_end);
-			width ++;
+			width ++;　//widthを1増やす
 			continue ;
 		}
-		if (0 < width && width < x - 1)
+		if (0 < width && width < x - 1)　//widthが0より大きく、x-1より小さいとき、中の文字を表示
 		{
 			ft_putchar(line);
-			width ++;
+			width ++;　//widthを1増やす
 			continue ;
 		}
-		ft_putchar(right_end);
-		width ++;
+		ft_putchar(right_end);　//右端の文字を表示
+		width ++;　//widthを1増やす
 	}
-	ft_putchar(new_line);
+	ft_putchar(new_line);　//改行する
 }
