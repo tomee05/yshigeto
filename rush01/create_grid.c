@@ -13,12 +13,12 @@
 #include <stdlib.h>
 
 // プロトタイプ宣言
-int	**create_x(void);
-int	check_grid(int **grid, int param[4][4]);
-int	check_lr(int array[], int left, int right);
+int	**create_x(void);　//create_xという引数のない戻り値が2次元配列の関数(1〜4の順列24通りを生成する)
+int	check_grid(int **grid, int param[4][4]);　//chack_gridという引数がgridの2次元配列とparam[4][4](4×4の配列)で、戻値がintの関数(グリッド全体が正しいかチェックする関数)
+int	check_lr(int array[], int left, int right);　//chack_lrという引数がarrayの配列とleft,rightで、戻値がintの関数(1行の左右条件をチェックする関数)
 
 
-int	**create_grid(int param[4][4])
+int	**create_grid(int param[4][4])　//24通りの行パターンを4行分すべて組み合わせて試し、条件を満たす解を見つける
 {
 	int	i;
 	int	**answer;　　//最終的な4*4グリッドの答え
@@ -31,7 +31,7 @@ int	**create_grid(int param[4][4])
   
 	while (i < 24 * 24 * 24 * 24)　//1列のパターンが4^4(4!)なので、1列で24通り。それらが4行あるので全部で24^4、そのすべてを検証する
 	{
-		answer[0] = colarray[(i / (24 * 24 * 24)) % 24]; //1列目のパターン生成
+		answer[0] = colarray[(i / (24 * 24 * 24)) % 24]; //1列目(千の位)のパターン生成
 		if (check_lr(answer[0], param[2][0], param[3][0]))　//chack_lr(1行目のデータ、左からの正解、右からの正解)
 			i = ((i / (24 * 24 * 24)) + 1) * 24 * 24 * 24;
   
