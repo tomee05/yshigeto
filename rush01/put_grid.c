@@ -12,26 +12,29 @@
 
 #include <unistd.h>
 
-void	put_grid(int answer[4][4])
+void	put_grid(int answer[4][4])　//4*4の解答グリッドを出力する関数
 {
-	int		i;
-	int		j;
-	char	c;
+	int		i;　//行(縦)のインデックス
+	int		j;　//列(横)のインデックス
+	char	c;　//表示する文字
 
-	i = 0;
-	j = 0;
-	while (i < 4)
+	//初期化
+	i = 0; 
+	j = 0; 
+	
+	while (i < 4)　//4行繰り返す
 	{
-		while (j < 4)
+		while (j < 4)  // 各行で4列繰り返す
 		{
-			c = answer[i][j] + '0';
-			write(1, &c, 1);
+			c = answer[i][j] + '0';  // 数字を文字に変換
+			
+			write(1, &c, 1);　// 1文字表示
 			if (j != 3)
-				write(1, " ", 1);
+				write(1, " ", 1);　// 最後の列以外はスペースを追加
 			j++;
 		}
 		i++;
-		j = 0;
-		write(1, "\n", 1);
+		j = 0;   // 列インデックスをリセット
+		write(1, "\n", 1); // 1行ごとに改行
 	}
 }
