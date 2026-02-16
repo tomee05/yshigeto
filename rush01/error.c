@@ -13,24 +13,26 @@
 // #include <stdio.h>
 #include <stdlib.h>
 
-int	error(int argc, char *argv[])
+int	error(int argc, char *argv[])　//コマンドライン引数が正しい形式かチェックする関数
 {
 	int	i;
 
 	i = 0;
-	if (argv == NULL || argc != 2 || argv[1] == NULL)
-		return (1);
-	while (argv[1][i] != '\0')
+	if (argv == NULL || argc != 2 || argv[1] == NULL)　
+	//argv == NULL：引数配列が存在するか or argc != 2：引数の個数が2個か（プログラム名 + パラメータ1個）or argv[1] == NULL：最初のパラメータが存在するか
+		return (1); //いずれかがエラーなら1を返す
+	
+	while (argv[1][i] != '\0')  //文字列の中身を1文字ずつチェック
 	{
-		if (i % 2 == 0 && !(argv[1][i] >= '1' && argv[1][i] <= '4'))
+		if (i % 2 == 0 && !(argv[1][i] >= '1' && argv[1][i] <= '4'))　//文字列の偶数位置に1~4以外の数があればエラーで、1を返す
 			return (1);
-		if (i % 2 == 1 && !(argv[1][i] == ' '))
+		if (i % 2 == 1 && !(argv[1][i] == ' '))　//文字列の奇数位置に空白以外の数があればエラーで、1を返す
 			return (1);
 		i++;
 	}
-	if (i != 31)
-		return (1);
-	return (0);
+	if (i != 31)　　//文字列の長さチェック(16個の数字 + 15個のスペース = 31文字)
+		return (1);  //合っていなければエラー(1を返す)
+	return (0);　　//合っていれば0を返す
 }
 
 // int	main(int argc, char *argv[])
