@@ -59,7 +59,7 @@ int	check_rev(int array[], int visible_count)　//右からの確認
 	return (0);　//等しくなければ、'0'を返す”
 }
 
-int	check_lr(int array[], int left, int right)　//左右それぞれの値を比較
+int	check_lr(int array[], int left, int right)　//左右それぞれからの値を比較
 {
 	if (check(array, left))　//左からの確認→合っていれば'0'を返す
 		return (0);
