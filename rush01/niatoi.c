@@ -10,27 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	niatoi(char *argv[], int param[4][4])
+void	niatoi(char *argv[], int param[4][4])　//コマンドライン引数の文字列を整数の2次元配列に変換する
 {
-	int	count;
+	int	count;　
 	int	value[16];
 	int	i;
 
-	count = 0;
+	//文字列から数字を抽出して配列に格納
+	count = 0;　
 	i = 0;
-	while (argv[1][count] != '\0')
+	while (argv[1][count] != '\0')　//argv[0]がファイル名、argv[1]が文字列なので、argv[1]の文字列だけを1文字ずつ走査
 	{
-		if (count % 2 == 0)
+		if (count % 2 == 0)　　//偶数位置だけを処理、奇数位置はスキップ
 		{
-			value[i] = argv[1][count] - '0';
+			value[i] = argv[1][count] - '0';　//文字を数値に変換し、valueに格納
 			i++;
 		}
 		count++;
 	}
+	
 	count = 0;
-	while (count < 16)
+	while (count < 16)　//1次元配列を4x4の2次元配列に変換
 	{
-		param[count / 4][count % 4] = value[count];
+		param[count / 4][count % 4] = value[count]; 
 		count++;
 	}
 	return ;
