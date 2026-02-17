@@ -16,12 +16,12 @@ void	create_x(int answer[24][4]);　//create_xという引数のない戻り値�
 int		check_grid(int answer[24][4], int param[4][4]);//chack_gridという引数がgridの2次元配列とparam[4][4](4×4の配列)で、戻値がintの関数(グリッド全体が正しいかチェックする関数)
 int		check_lr(int array[], int left, int right);//chack_lrという引数がarrayの配列とleft,rightで、戻値がintの関数(1行の左右条件をチェックする関数)
 
-void	arraycpy(int dest[4], int src[4])
+void	arraycpy(int dest[4], int src[4])  //4要素のint配列をコピーする関数
 {
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 4)　　
 	{
 		dest[i] = src[i];
 		i++;
