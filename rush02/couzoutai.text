@@ -1,0 +1,9 @@
+kouzoutai char *name, char *eigo
+{
+	{ name : 1, eigo : thousand}, 
+	{ name : 2, eigo : a}, 
+	{ name : 3, eigo : s}, 
+	{ name : 4, eigo : f}, 
+}
+
+printf(kouzoutai.name[1]) -> thousand
